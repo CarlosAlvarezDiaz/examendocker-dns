@@ -108,3 +108,9 @@ networks:
 8. ¿Como puedo hacer para que la configuración de un contenedor DNS no se borre si creo otro contenedor?
 
    Para persistir la configuración de un contenedor DNS entre diferentes instancias o reinicios, puedes utilizar volúmenes en Docker. Los volúmenes son una forma de almacenar y compartir datos entre contenedores y con el sistema host.
+
+9.logs ![imagen](https://github.com/CarlosAlvarezDiaz/examendocker-dns/assets/144815112/257b9672-5930-46ea-9956-8c99a2c298eb)
+
+dig ![imagen](https://github.com/CarlosAlvarezDiaz/examendocker-dns/assets/144815112/237f5593-7eb3-46a5-9535-e577e3b8ccaa)
+
+
