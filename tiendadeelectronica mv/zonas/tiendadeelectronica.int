@@ -1,0 +1,13 @@
+$TTL	604800
+@	IN	SOA	ns1.tiendadeelectronica.int. admin.int. (
+		2023111301	; Serial
+		86400		; Refresh
+		7200		; Retry
+		604800		; Expire
+		86400 )		; Negative Cache TTL
+
+@	IN	NS	ns1.tiendadeelectronica.int.
+
+www	IN	A	172.16.0.1
+owncloud IN 	 CNAME 	www
+@	IN	TXT	"1234ASDF"
