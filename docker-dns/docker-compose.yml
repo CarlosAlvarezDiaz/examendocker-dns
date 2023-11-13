@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  contenedor_dns:
+    image: sameersbn/bind:latest
+    container_name: mi_contenedor_dns
+    ports:
+      - "53:53/udp"
+    volumes:
+      - /home/admin/Practica01-DNS/conf:/etc/bind
+    restart: always
