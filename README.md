@@ -23,3 +23,23 @@
     
   d. Redirección de STDIN, STDOUT, STDERR:
     Asegúrate de que STDIN, STDOUT y STDERR estén conectados. Esto debería ser manejado automáticamente cuando usas las opciones -i y -t.
+
+3. ¿Cómo sería un fichero docker-compose para que dos contenedores se comuniquen entre si en una red solo de ellos?
+
+  version: '3'
+
+services:
+  servicio1:
+    image: nombre_de_imagen_servicio1
+    networks:
+      - red_privada
+
+  servicio2:
+    image: nombre_de_imagen_servicio2
+    networks:
+      - red_privada
+
+networks:
+  red_privada:
+    driver: bridge
+
