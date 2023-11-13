@@ -104,3 +104,7 @@ networks:
 
      www.ejemplo.com tiene una dirección IP directa (A record) asociada con ella.
      blog.ejemplo.com se configura como un alias (CNAME) de www.ejemplo.com.
+
+8. ¿Como puedo hacer para que la configuración de un contenedor DNS no se borre si creo otro contenedor?
+
+   Para persistir la configuración de un contenedor DNS entre diferentes instancias o reinicios, puedes utilizar volúmenes en Docker. Los volúmenes son una forma de almacenar y compartir datos entre contenedores y con el sistema host.
