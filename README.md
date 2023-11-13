@@ -92,3 +92,15 @@ networks:
    La sección ports en un archivo Docker Compose se utiliza para especificar la exposición de puertos del contenedor al host. Permite mapear puertos del contenedor a puertos específicos en el host, lo que facilita el acceso a los servicios que se
    ejecutan dentro del contenedor desde el exterior.
 
+7. ¿Para que sirve el registro CNAME? Pon un ejemplo
+
+     El registro CNAME (Canonical Name) se utiliza en el sistema de nombres de dominio (DNS) para asociar un nombre de dominio con otro. Básicamente, un CNAME actúa como un alias de otro nombre de dominio, permitiendo que un nombre de dominio se
+     refiera a otro dominio sin tener que duplicar la información de resolución de nombres.
+
+     www.ejemplo.com     IN   A      192.168.1.1
+     blog.ejemplo.com    IN   CNAME  www.ejemplo.com
+
+     En este ejemplo:
+
+     www.ejemplo.com tiene una dirección IP directa (A record) asociada con ella.
+     blog.ejemplo.com se configura como un alias (CNAME) de www.ejemplo.com.
