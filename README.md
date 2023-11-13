@@ -43,3 +43,45 @@ networks:
   red_privada:
     driver: bridge
 
+    Se definen dos servicios (servicio1 y servicio2) que utilizan imágenes específicas (nombre_de_imagen_servicio1 y nombre_de_imagen_servicio2). Puedes reemplazar estos nombres con las imágenes que estás utilizando.
+
+    Ambos servicios están conectados a una red llamada red_privada mediante la clave networks.
+
+    La red red_privada se define al final del archivo y utiliza el controlador de red bridge. Esto crea una red privada a la que solo los servicios especificados tienen acceso.
+
+4. ¿Qué hay que añadir al fichero anterior para que un contenedor tenga la IP fija?
+
+   version: '3'
+
+services:
+  servicio1:
+    image: nombre_de_imagen_servicio1
+    networks:
+      red_privada:
+        ipv4_address: 172.16.0.2
+
+  servicio2:
+    image: nombre_de_imagen_servicio2
+    networks:
+      red_privada:
+        ipv4_address: 172.16.0.3
+
+networks:
+  red_privada:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.16.0.0/24
+
+
+    En el servicio servicio1, se ha añadido la clave ipv4_address dentro de la sección networks. Esto asigna la dirección IP 172.16.0.2 al contenedor servicio1.
+
+    Similarmente, en el servicio servicio2, se ha añadido la clave ipv4_address para asignar la dirección IP 172.16.0.3.
+
+    En la sección networks, se utiliza ipam (IP Address Management) para configurar el rango de direcciones IP disponibles. En este caso, se ha especificado la subred 172.16.0.0/24.
+
+5. ¿Que comando de consola puedo usar para saber las ips de los contenedores anteriores? Filtra todo lo que puedas la salida. El comando no es "ip a", tiene que ser desde fuera del contenedor.
+
+  docker inspect --format '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' nombre_del_contenedor
+
